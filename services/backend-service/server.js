@@ -32,7 +32,7 @@ app.get('/users', (req, res) => {
     'method': 'GET',
     'url': 'http://iam.localoih.com/api/v1/users',
     'headers': {
-      'Authorization': 'Bearer pMwbSO7Fyky7Qt_HxcQYrvzuShTttYyTHB0o3Ja9CzHn2wCoNVYYsbq9J_GZOQeFVyJCx9cSCink8gm4nStpks0ZQkj-24Q6Zfk4zNDPfpEXaXAuId9VWnwStI3DctCxpHkl6GdMkaDOqZFpl1VQMt0wVf38mtMQIi13EXtRdU0'
+      'Authorization': `Bearer ${token}`
     }
   };
   request(options,function (error, response, body) {
@@ -55,7 +55,7 @@ app.get('/flows', (req, res) => {
     'method': 'GET',
     'url': 'http://flow-repository.localoih.com/flows',
     'headers': {
-      'Authorization': 'Bearer pMwbSO7Fyky7Qt_HxcQYrvzuShTttYyTHB0o3Ja9CzHn2wCoNVYYsbq9J_GZOQeFVyJCx9cSCink8gm4nStpks0ZQkj-24Q6Zfk4zNDPfpEXaXAuId9VWnwStI3DctCxpHkl6GdMkaDOqZFpl1VQMt0wVf38mtMQIi13EXtRdU0'
+      'Authorization': `Bearer ${token}`
     }
   };
   request(options,function (error, response, body) {
@@ -71,6 +71,8 @@ app.get('/flows', (req, res) => {
   });
 });
 //end api call
+
+//begin api call
 app.get('/movies', (req, res) => {
   var request = require('request');
 var options = {
@@ -78,7 +80,7 @@ var options = {
   'url': 'https://the-one-api.dev/v2/movie',
   'headers': {
     'X-Total-Count': '8',
-    'Authorization': 'Bearer 2e04l23ZnyjZRhyC089h'
+    'Authorization': `Bearer ${token}`
   }
 };
 request(options, function (error, response) {
@@ -87,9 +89,8 @@ request(options, function (error, response) {
 });
 
 });
+//END api call
 
-
-  
 
 app.listen(port, () => {
   console.log(`Workload backend-service app listening at http://localhost:${port}`)
