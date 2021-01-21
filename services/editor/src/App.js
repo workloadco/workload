@@ -20,7 +20,7 @@ const httpClient = (url, options = {}) => {
     options.headers.set('Authorization', `Bearer ${token}`);
     return fetchUtils.fetchJson(url, options);
 };
-const dataProvider = jsonServerProvider("http://localhost:5000",httpClient);
+const dataProvider = jsonServerProvider("http://localhost:3000",httpClient);
 
 function App() {
    return (
@@ -28,6 +28,7 @@ function App() {
         <Resource name="dashboard" list={ListGuesser} />
         <Resource name="users" list={ListGuesser} edit={PostEdit} create={PostCreate} />
         <Resource name="flows" list={ListGuesser} />
+        <Resource name="movies" list={ListGuesser} />
        
 
        </Admin>

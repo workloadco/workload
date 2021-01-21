@@ -58,7 +58,7 @@ const CustomMenu = ({ onMenuClick, logout }) => {
                 sidebarIsOpen={open}
             />
             <MenuItemLink className={classes.menu}
-                to="/flows"
+                to="/movies"
                 primaryText="Settings"
                 leftIcon={<SettingsRoundedIcon />}
                 onClick={onMenuClick}

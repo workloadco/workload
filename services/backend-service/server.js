@@ -71,31 +71,24 @@ app.get('/flows', (req, res) => {
   });
 });
 //end api call
-app.get('/users', (req, res) => {
-  request('iam.localoih.com/api/v1/users',bearerToken,function(error, response, body) {
-    if (!error && response.statusCode ==200) {
-    console.log(response);
-        res.set('Content-Type', 'application/json');
-        res.send(body);
-    }
-  })
+app.get('/movies', (req, res) => {
+  var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'https://the-one-api.dev/v2/movie',
+  'headers': {
+    'X-Total-Count': '8',
+    'Authorization': 'Bearer 2e04l23ZnyjZRhyC089h'
+  }
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
 });
 
-app.get('/flows', (req, res) => {
-  request('http://flow-repository.localoih.com/flows',function(error, response, body) {
-    if (!error && response.statusCode ==200) {
-      res.set("Authorization: Bearer pMwbSO7Fyky7Qt_HxcQYrvzuShTttYyTHB0o3Ja9CzHn2wCoNVYYsbq9J_GZOQeFVyJCx9cSCink8gm4nStpks0ZQkj-24Q6Zfk4zNDPfpEXaXAuId9VWnwStI3DctCxpHkl6GdMkaDOqZFpl1VQMt0wVf38mtMQIi13EXtRdU0");
-     
-        console.log(req.headers);
-        console.log(req.get('Range'));     
-    console.log(req.range()); 
-        console.log(body);
-    //    res.status(500).send('testing');
-        res.send(body);
-        res.end();
-    }
-  })
 });
+
+
   
 
 app.listen(port, () => {
